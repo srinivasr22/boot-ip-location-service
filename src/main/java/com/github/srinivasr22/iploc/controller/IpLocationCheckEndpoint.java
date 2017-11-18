@@ -1,6 +1,7 @@
 package com.github.srinivasr22.iploc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,7 @@ import com.github.srinivasr22.iploc.service.ExternalLocationCheckService;
 public class IpLocationCheckEndpoint {
 
 	@Autowired
+	@Qualifier("geoLite2LocationServiceProviderImpl")
 	private ExternalLocationCheckService lc;
 	
 	

@@ -1,11 +1,13 @@
-package com.github.srinivasr22.iploc.service;
+package com.github.srinivasr22.iploc.service.iploc;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.github.srinivasr22.iploc.service.ExternalLocationCheckService;
+
 @Service
-public class IpApiLocationServiceProvider implements ExternalLocationCheckService{
+public class IpApiLocationCheckServiceImpl implements ExternalLocationCheckService{
 
 	@Value("${ipapi.baseurl}")
 	private String urlTemplate;
@@ -13,7 +15,7 @@ public class IpApiLocationServiceProvider implements ExternalLocationCheckServic
 	@Override
 	public boolean checkIpToCountryMatch(String ip, String country) {
 		RestTemplate rt = new RestTemplate();
-		LocationVO l = rt.getForObject(constructUrl(ip), LocationVO.class);
+		IpApiLocationVO l = rt.getForObject(constructUrl(ip), IpApiLocationVO.class);
 		System.out.println(l.toString());
 		return country.equalsIgnoreCase(l.getCountryCode()) ? true:false;
 	}

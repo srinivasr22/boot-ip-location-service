@@ -1,9 +1,9 @@
-package com.github.srinivasr22.iploc.service;
+package com.github.srinivasr22.iploc.service.iploc;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class LocationVO {
+public class IpApiLocationVO {
 	private String countryCode;
 	private String zip;
 	private String region;
