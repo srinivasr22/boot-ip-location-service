@@ -33,7 +33,7 @@ class GeoLite2CountryDataLoader implements ApplicationListener<ContextRefreshedE
 			geoLite2DataRepository.setCountryMap(Files.lines(country)
 						.skip(1)
 						.filter(line -> !"".equals(line))
-						.map(mapToLocationVO)
+						.map(mapToCountryVO)
 						.collect(Collectors.toMap(GeoLite2CountryVO::getId, Function.identity())));
 			geoLite2DataRepository.getCountryMap()
 								.forEach((id, vo) -> {System.out.println("id: "+id + ", vo:"+vo.getCountry());});
@@ -43,7 +43,7 @@ class GeoLite2CountryDataLoader implements ApplicationListener<ContextRefreshedE
 		System.out.println("Loaded GeoLite2 Country Data");
 	}
 	
-	private Function<String, GeoLite2CountryVO> mapToLocationVO = line -> {
+	private Function<String, GeoLite2CountryVO> mapToCountryVO = line -> {
 		String[] tokens = line.split(",");
 		GeoLite2CountryVO gVo = new GeoLite2CountryVO();
 		if (tokens.length > 0)

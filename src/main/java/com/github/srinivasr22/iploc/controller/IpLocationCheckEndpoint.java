@@ -14,7 +14,7 @@ import com.github.srinivasr22.iploc.service.ExternalLocationCheckService;
 public class IpLocationCheckEndpoint {
 
 	@Autowired
-	@Qualifier("geoLite2LocationServiceProviderImpl")
+	@Qualifier("geoLite2LocationCheckServiceImpl")
 	private ExternalLocationCheckService lc;
 	
 	

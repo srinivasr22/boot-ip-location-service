@@ -14,7 +14,10 @@ public class GeoLite2LocationCheckServiceImpl implements ExternalLocationCheckSe
 	
 	@Override
 	public boolean checkIpToCountryMatch(String ip, String country) {
+		System.out.println(GeoLite2IpVO.calculateNumericIp(ip));
+		
 		geoLite2DataRepository.getCountryMap();
+		
 		return false;
 	}
 }
